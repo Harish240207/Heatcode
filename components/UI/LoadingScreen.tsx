@@ -45,7 +45,7 @@ export function LoadingScreen({
             <div className="text-right">
 
               <p className="text-xs uppercase tracking-[0.35em] text-white/35">
-                Hosted By
+                Hosted On
               </p>
 
               <h2 className="mt-2 text-2xl font-bold">

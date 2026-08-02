@@ -28,14 +28,10 @@ export default function Home() {
   return (
     <main className="relative h-screen w-screen overflow-hidden bg-[#030305] text-white select-none">
 
-      {/* Loading */}
-
       <LoadingScreen
         percentage={percentage}
         isStage2Ready={isStage2Ready}
       />
-
-      {/* Playback */}
 
       <PlaybackController
         isStage2Ready={isStage2Ready}
@@ -43,8 +39,6 @@ export default function Home() {
         isEnded={isEnded}
         onAutoStart={play}
       />
-
-      {/* Replay Fade */}
 
       {isReplaying && (
         <motion.div
@@ -55,13 +49,78 @@ export default function Home() {
         />
       )}
 
-      {/* Canvas */}
-
       <CanvasPlayer currentFrame={currentFrame} />
 
-      {/* ========================================================= */}
-      {/* TOP LEFT BRANDING */}
-      {/* ========================================================= */}
+      {/* ===================================================== */}
+      {/* MOBILE TOP INFO */}
+      {/* ===================================================== */}
+
+      <motion.div
+        animate={{
+          opacity: isScene4 ? 0 : 1,
+          y: isScene4 ? -15 : 0,
+        }}
+        transition={{
+          duration: 0.35,
+        }}
+        className="
+          fixed
+          top-5
+          left-5
+          right-5
+          z-30
+
+          flex
+          items-start
+          justify-between
+
+          sm:hidden
+        "
+      >
+
+        <div>
+
+          <p className="text-[10px] uppercase tracking-[0.3em] text-[#E50914]">
+            FODSE × SVCE
+          </p>
+
+          <h1 className="mt-2 text-[30px] font-black leading-none">
+            HEATCODE
+            <br />
+            2026
+          </h1>
+
+        </div>
+
+        <div className="text-right">
+
+          <p className="text-[10px] uppercase tracking-[0.25em] text-white/60">
+            EVENT DATE
+          </p>
+
+          <p className="mt-2 text-[13px] font-semibold">
+            8 Aug 2026
+          </p>
+
+          <p className="text-[11px] text-white/60">
+            9:00 AM
+          </p>
+
+          <p className="mt-2 text-[13px] font-semibold">
+            9 Aug 2026
+          </p>
+
+          <p className="text-[11px] text-white/60">
+            6:00 PM
+          </p>
+
+        </div>
+
+      </motion.div>
+
+      {/* ===================================================== */}
+      {/* DESKTOP LEFT */}
+      {/* ===================================================== */}
 
       <motion.div
         animate={{
@@ -69,58 +128,31 @@ export default function Home() {
         }}
         transition={{
           duration: 0.45,
-          ease: "easeInOut",
         }}
         className="
-  pointer-events-none
-  fixed
-  left-5
-  right-5
-  z-30
+          pointer-events-none
+          fixed
+          left-8
+          z-30
 
-  top-[78px]
-
-  flex
-  flex-col
-
-  sm:left-8
-  sm:right-auto
-  sm:block
-"
+          hidden
+          sm:block
+        "
       >
 
-        <p className="
-text-[11px]
-uppercase
-tracking-[0.28em]
-text-[#E50914]
-
-sm:text-xs
-sm:tracking-[0.45em]
-">
+        <p className="text-xs uppercase tracking-[0.45em] text-[#E50914]">
           FODSE × SVCE
         </p>
 
-        <h1
-className="
-mt-1
-text-[34px]
-font-black
-leading-none
-tracking-tight
-
-sm:mt-2
-sm:text-3xl
-"
->
+        <h1 className="mt-2 text-3xl font-black tracking-tight">
           HEATCODE 2026
         </h1>
 
       </motion.div>
 
-      {/* ========================================================= */}
-      {/* TOP RIGHT EVENT DETAILS */}
-      {/* ========================================================= */}
+      {/* ===================================================== */}
+      {/* DESKTOP RIGHT */}
+      {/* ===================================================== */}
 
       <motion.div
         animate={{
@@ -128,77 +160,43 @@ sm:text-3xl
         }}
         transition={{
           duration: 0.45,
-          ease: "easeInOut",
         }}
         className="
-pointer-events-none
-fixed
+          pointer-events-none
+          fixed
+          right-8
+          z-30
+          text-right
 
-left-5
-right-5
-
-top-[78px]
-
-z-30
-
-text-right
-
-sm:left-auto
-sm:right-8
-"
+          hidden
+          sm:block
+        "
       >
 
-        <p
-className="
-text-[11px]
-uppercase
-tracking-[0.22em]
-text-white/60
-
-sm:text-xs
-sm:tracking-[0.35em]
-"
->
+        <p className="text-xs uppercase tracking-[0.35em] text-white/60">
           EVENT DATE
         </p>
 
-        <p
-className="
-mt-1
-text-[17px]
-font-bold
-leading-tight
-
-sm:mt-2
-sm:text-lg
-"
->
+        <p className="mt-2 text-lg font-semibold">
           8 Aug 2026 • 9:00 AM
         </p>
 
-        <p className="text-xs text-white/70 sm:text-base">
+        <p className="text-sm text-white/60">
           to
         </p>
 
-        <p
-className="
-text-[17px]
-font-bold
-leading-tight
-
-sm:text-lg
-"
->
+        <p className="text-lg font-semibold">
           9 Aug 2026 • 6:00 PM
         </p>
 
       </motion.div>
 
-      {/* ========================================================= */}
-      {/* BOTTOM EVENT PILLS (ONLY BEFORE SCENE 4) */}
-      {/* ========================================================= */}
+      {/* ===================================================== */}
+      {/* BOTTOM PILLS */}
+      {/* ===================================================== */}
 
       {!isScene4 && (
+
         <div
           className="
             pointer-events-none
@@ -206,25 +204,28 @@ sm:text-lg
             bottom-4
             left-1/2
             z-30
+
             flex
-            w-[92%]
-            max-w-5xl
             -translate-x-1/2
             flex-wrap
-            items-center
             justify-center
             gap-2
-            sm:bottom-8
+
+            w-[92%]
+
             sm:w-auto
+            sm:bottom-8
             sm:gap-3
           "
         >
+
           {[
             "24 HOURS",
             "TEAMS OF 2",
             "KAGGLE",
             "MACHINE LEARNING",
           ].map((item) => (
+
             <div
               key={item}
               className="
@@ -232,30 +233,31 @@ sm:text-lg
                 border
                 border-white/15
                 bg-white/10
+
                 px-4
                 py-2
+
                 text-[10px]
                 font-semibold
                 uppercase
                 tracking-[0.18em]
+
                 backdrop-blur-xl
+
                 sm:px-5
-                sm:py-2
                 sm:text-xs
-                sm:tracking-[0.25em]
               "
             >
               {item}
             </div>
+
           ))}
+
         </div>
+
       )}
 
-      {/* Hero Overlay */}
-
       <HeroOverlay currentFrame={currentFrame} />
-
-      {/* Scene 4 Navbar + CTA */}
 
       <CTAOverlay currentFrame={currentFrame} />
 

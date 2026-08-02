@@ -30,9 +30,8 @@ export function CTAOverlay({
 
   return (
     <>
-
       {/* ====================================================== */}
-      {/* NAVBAR */}
+      {/* SPIDER-MAN NAVBAR */}
       {/* ====================================================== */}
 
       <AnimatePresence>
@@ -41,11 +40,20 @@ export function CTAOverlay({
 
           <>
             <motion.header
-              initial={{ opacity: 0, y: -25 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -25 }}
+              initial={{
+                opacity: 0,
+                y: -24,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              exit={{
+                opacity: 0,
+                y: -24,
+              }}
               transition={{
-                duration: 0.6,
+                duration: 0.55,
                 ease: [0.16, 1, 0.3, 1],
               }}
               className="
@@ -55,14 +63,18 @@ export function CTAOverlay({
                 right-0
                 z-[60]
                 pointer-events-auto
+
                 border-b
-                border-red-500/20
+                border-[#E50914]/15
+
                 bg-gradient-to-r
-                from-[#07131F]/95
+                from-[#08131F]/95
                 via-[#050608]/95
-                to-[#07131F]/95
-                backdrop-blur-xl
-                shadow-[0_6px_30px_rgba(0,0,0,.55)]
+                to-[#08131F]/95
+
+                backdrop-blur-2xl
+
+                shadow-[0_6px_28px_rgba(0,0,0,.55)]
               "
             >
 
@@ -75,27 +87,29 @@ export function CTAOverlay({
                   max-w-[1800px]
                   items-center
                   justify-between
-                  px-5
-                  lg:px-8
-                  xl:px-10
-                "
-              >
 
-                {/* ================================================= */}
-                {/* DESKTOP */}
+                  px-4
+                  sm:px-5
+                  lg:px-10
+                  xl:px-14
+                "
+              >                {/* ================================================= */}
+                {/* DESKTOP NAVBAR */}
                 {/* ================================================= */}
 
                 <div className="hidden w-full items-center lg:flex">
 
-                  {/* LEFT LOGO */}
+                  {/* ===================== */}
+                  {/* LEFT : LOGO */}
+                  {/* ===================== */}
 
                   <div className="flex shrink-0 items-center">
 
                     <Image
                       src="/fodse-logo.png"
                       alt="FODSE Logo"
-                      width={58}
-                      height={58}
+                      width={64}
+                      height={64}
                       priority
                       className="
                         h-11
@@ -104,15 +118,19 @@ export function CTAOverlay({
                         transition-all
                         duration-300
                         hover:scale-105
-                        drop-shadow-[0_0_14px_rgba(255,255,255,.18)]
+                        drop-shadow-[0_0_16px_rgba(255,255,255,.18)]
                       "
                     />
 
                   </div>
 
-                  {/* RIGHT */}
+                  {/* ===================== */}
+                  {/* RIGHT SECTION */}
+                  {/* ===================== */}
 
-                  <div className="ml-auto flex items-center gap-8">
+                  <div className="ml-auto flex items-center gap-9">
+
+                    {/* Navigation */}
 
                     <nav
                       className={`${michroma.className} flex items-center gap-8`}
@@ -126,13 +144,13 @@ export function CTAOverlay({
                             ${michroma.className}
                             group
                             relative
-                            text-[14px]
+                            text-[13px]
                             uppercase
-                            tracking-[0.04em]
-                            text-white
+                            tracking-[0.05em]
+                            text-white/85
                             transition-all
                             duration-300
-                            hover:text-[#ff4545]
+                            hover:text-white
                           `}
                         >
 
@@ -141,12 +159,15 @@ export function CTAOverlay({
                           <span
                             className="
                               absolute
-                              -bottom-[6px]
+                              -bottom-[7px]
                               left-0
                               h-[2px]
                               w-0
                               rounded-full
-                              bg-[#E50914]
+                              bg-gradient-to-r
+                              from-[#E50914]
+                              via-[#ff4b57]
+                              to-[#E50914]
                               transition-all
                               duration-300
                               group-hover:w-full
@@ -159,71 +180,128 @@ export function CTAOverlay({
 
                     </nav>
 
+                    {/* Register Button */}
+
                     <button
                       className={`
                         ${michroma.className}
+                        group
+                        relative
+                        overflow-hidden
                         rounded-md
+
                         border
-                        border-[#E50914]/40
-                        bg-white
+                        border-[#E50914]/35
+
+                        bg-gradient-to-r
+                        from-[#E50914]
+                        to-[#c40812]
+
                         px-5
-                        py-[9px]
-                        text-[13px]
+                        py-[8px]
+
+                        text-[12px]
                         uppercase
-                        tracking-[0.04em]
-                        text-black
+                        tracking-[0.05em]
+
+                        text-white
+
                         transition-all
                         duration-300
-                        hover:bg-[#E50914]
-                        hover:text-white
-                        hover:shadow-[0_0_20px_rgba(229,9,20,.45)]
+
+                        hover:scale-[1.03]
+                        hover:shadow-[0_0_22px_rgba(229,9,20,.45)]
                       `}
                     >
-                      Register Now
+
+                      <span className="relative z-10">
+                        Register Now
+                      </span>
+
+                      <span
+                        className="
+                          absolute
+                          inset-0
+                          -translate-x-full
+                          bg-gradient-to-r
+                          from-transparent
+                          via-white/30
+                          to-transparent
+                          transition-transform
+                          duration-700
+                          group-hover:translate-x-full
+                        "
+                      />
+
                     </button>
 
                   </div>
 
-                </div>
-
-                {/* ================================================= */}
-                {/* MOBILE */}
+                </div>                {/* ================================================= */}
+                {/* MOBILE NAVBAR */}
                 {/* ================================================= */}
 
                 <div className="flex w-full items-center justify-between lg:hidden">
 
+                  {/* Logo */}
+
                   <Image
                     src="/fodse-logo.png"
                     alt="FODSE Logo"
-                    width={46}
-                    height={46}
+                    width={48}
+                    height={48}
                     priority
-                    className="h-9 w-auto object-contain"
+                    className="
+                      h-10
+                      w-auto
+                      object-contain
+                      drop-shadow-[0_0_12px_rgba(255,255,255,.15)]
+                    "
                   />
+
+                  {/* Hamburger */}
 
                   <button
                     onClick={() => setMobileOpen(!mobileOpen)}
+                    aria-label="Toggle navigation"
                     className="
                       flex
-                      h-9
-                      w-9
+                      h-10
+                      w-10
                       items-center
                       justify-center
+
                       rounded-md
+
                       border
                       border-white/10
+
                       bg-white/5
+
                       text-white
+
                       transition-all
+                      duration-300
+
                       hover:bg-white/10
+                      active:scale-95
                     "
                   >
 
-                    {mobileOpen ? (
-                      <X size={20} />
-                    ) : (
-                      <Menu size={20} />
-                    )}
+                    <motion.div
+                      animate={{
+                        rotate: mobileOpen ? 180 : 0,
+                      }}
+                      transition={{
+                        duration: 0.25,
+                      }}
+                    >
+                      {mobileOpen ? (
+                        <X size={20} />
+                      ) : (
+                        <Menu size={20} />
+                      )}
+                    </motion.div>
 
                   </button>
 
@@ -234,7 +312,7 @@ export function CTAOverlay({
             </motion.header>
 
             {/* ================================================= */}
-            {/* MOBILE MENU */}
+            {/* MOBILE DROPDOWN */}
             {/* ================================================= */}
 
             <AnimatePresence>
@@ -244,7 +322,7 @@ export function CTAOverlay({
                 <motion.div
                   initial={{
                     opacity: 0,
-                    y: -15,
+                    y: -20,
                   }}
                   animate={{
                     opacity: 1,
@@ -252,71 +330,114 @@ export function CTAOverlay({
                   }}
                   exit={{
                     opacity: 0,
-                    y: -15,
+                    y: -20,
                   }}
                   transition={{
-                    duration: 0.25,
+                    duration: 0.28,
                   }}
                   className="
                     fixed
                     top-[54px]
                     left-0
                     right-0
+
                     z-[55]
+
+                    overflow-hidden
+
                     border-b
-                    border-red-500/20
-                    bg-[#07101A]/98
-                    backdrop-blur-xl
+                    border-[#E50914]/15
+
+                    bg-[#08111B]/98
+
+                    backdrop-blur-2xl
+
+                    shadow-[0_12px_40px_rgba(0,0,0,.45)]
+
                     lg:hidden
                   "
                 >
 
-                  <div className="flex flex-col py-3">
+                  <div className="px-6 py-4">
 
-                    {NAV_ITEMS.map((item) => (
+                    <nav className="flex flex-col">
 
-                      <button
-                        key={item}
-                        onClick={() => setMobileOpen(false)}
-                        className={`
-                          ${michroma.className}
-                          border-b
-                          border-white/5
-                          py-4
-                          text-center
-                          text-[13px]
-                          uppercase
-                          tracking-[0.05em]
-                          text-white
-                          transition-colors
-                          hover:bg-[#E50914]
-                        `}
-                      >
-                        {item}
-                      </button>
+                      {NAV_ITEMS.map((item, index) => (
 
-                    ))}
+                        <motion.button
+                          key={item}
+                          initial={{
+                            opacity: 0,
+                            x: -15,
+                          }}
+                          animate={{
+                            opacity: 1,
+                            x: 0,
+                          }}
+                          transition={{
+                            delay: index * 0.05,
+                          }}
+                          onClick={() => setMobileOpen(false)}
+                          className={`
+                            ${michroma.className}
 
-                    <div className="p-4">
+                            border-b
+                            border-white/5
 
-                      <button
-                        className={`
-                          ${michroma.className}
-                          w-full
-                          rounded-md
-                          bg-[#E50914]
-                          py-3
-                          text-[13px]
-                          uppercase
-                          text-white
-                          transition-all
-                          hover:bg-red-600
-                        `}
-                      >
-                        Register Now
-                      </button>
+                            py-4
 
-                    </div>
+                            text-left
+
+                            text-[13px]
+                            uppercase
+                            tracking-[0.05em]
+
+                            text-white
+
+                            transition-all
+                            duration-300
+
+                            hover:pl-2
+                            hover:text-[#ff5555]
+                          `}
+                        >
+                          {item}
+                        </motion.button>
+
+                      ))}
+
+                    </nav>
+
+                    <button
+                      className={`
+                        ${michroma.className}
+
+                        mt-5
+
+                        w-full
+
+                        rounded-md
+
+                        bg-gradient-to-r
+                        from-[#E50914]
+                        to-[#c40812]
+
+                        py-3
+
+                        text-[13px]
+                        uppercase
+                        tracking-[0.05em]
+
+                        text-white
+
+                        transition-all
+                        duration-300
+
+                        hover:shadow-[0_0_18px_rgba(229,9,20,.45)]
+                      `}
+                    >
+                      Register Now
+                    </button>
 
                   </div>
 
@@ -330,8 +451,7 @@ export function CTAOverlay({
 
         )}
 
-      </AnimatePresence>
-            {/* ====================================================== */}
+      </AnimatePresence>      {/* ====================================================== */}
       {/* HERO */}
       {/* ====================================================== */}
 
@@ -341,9 +461,11 @@ export function CTAOverlay({
           fixed
           inset-0
           z-20
+
           flex
           items-center
           justify-center
+
           px-6
           text-center
         "
@@ -357,8 +479,8 @@ export function CTAOverlay({
               key="scene4-hero"
               initial={{
                 opacity: 0,
-                y: 55,
-                scale: 0.95,
+                y: 50,
+                scale: 0.96,
                 filter: "blur(14px)",
               }}
               animate={{
@@ -370,7 +492,7 @@ export function CTAOverlay({
               exit={{
                 opacity: 0,
                 y: 35,
-                scale: 0.97,
+                scale: 0.98,
                 filter: "blur(10px)",
               }}
               transition={{
@@ -378,42 +500,80 @@ export function CTAOverlay({
                 ease: [0.16, 1, 0.3, 1],
               }}
               className="
-flex
-flex-col
-items-center
-justify-center
+                flex
+                w-full
+                max-w-7xl
+                flex-col
+                items-center
+                justify-center
 
-pt-44
-sm:pt-10
-"
+                pt-32
+                sm:pt-28
+                lg:pt-12
+              "
             >
 
               {/* Registration */}
 
-              <span
+              <motion.span
+                initial={{
+                  opacity: 0,
+                  letterSpacing: "0.2em",
+                }}
+                animate={{
+                  opacity: 1,
+                  letterSpacing: "0.55em",
+                }}
+                transition={{
+                  delay: 0.15,
+                  duration: 0.6,
+                }}
                 className="
-                  mb-6
-                  text-[11px]
+                  mb-5
+
+                  text-[10px]
                   font-semibold
                   uppercase
-                  tracking-[0.65em]
+
+                  tracking-[0.55em]
+
                   text-[#E50914]
+
+                  sm:text-[11px]
                 "
               >
                 REGISTRATION OPEN
-              </span>
+              </motion.span>
 
-              {/* Main Heading */}
+              {/* Heading */}
 
-              <h2
+              <motion.h2
+                initial={{
+                  opacity: 0,
+                  y: 30,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  delay: 0.25,
+                  duration: 0.8,
+                }}
                 className="
-                  text-5xl
+                  select-none
+
+                  text-[3rem]
                   font-black
                   uppercase
+
                   leading-[0.88]
                   tracking-tight
+
                   text-white
+
                   drop-shadow-[0_18px_60px_rgba(0,0,0,.95)]
+
                   sm:text-6xl
                   md:text-7xl
                   lg:text-8xl
@@ -425,31 +585,35 @@ sm:pt-10
                 COMPETE.
                 <br />
                 CONQUER.
-              </h2>
+              </motion.h2>
 
-              {/* Spider-Man Accent */}
+              {/* Spider Accent */}
 
               <motion.div
                 initial={{
-                  opacity: 0,
                   width: 0,
+                  opacity: 0,
                 }}
                 animate={{
+                  width: 170,
                   opacity: 1,
-                  width: 140,
                 }}
                 transition={{
-                  delay: 0.55,
+                  delay: 0.6,
                   duration: 0.8,
                 }}
                 className="
-                  mt-10
+                  mt-9
+
                   h-[2px]
+
                   rounded-full
+
                   bg-gradient-to-r
                   from-transparent
                   via-[#E50914]
                   to-transparent
+
                   shadow-[0_0_18px_rgba(229,9,20,.55)]
                 "
               />
@@ -460,8 +624,6 @@ sm:pt-10
 
         </AnimatePresence>
 
-      </div>
-
-    </>
+      </div>    </>
   );
 }

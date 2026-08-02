@@ -21,7 +21,29 @@ export function HeroOverlay({ currentFrame }: HeroOverlayProps) {
     currentFrame <= SCENES.SCENE_3.endFrame;
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-10 flex items-center justify-center px-5 sm:px-6 text-center">
+    <div
+  className="
+    pointer-events-none
+    fixed
+    inset-0
+    z-10
+
+    flex
+
+    items-start
+    justify-center
+
+    px-5
+    sm:px-6
+
+    pt-44
+    sm:pt-36
+    lg:items-center
+    lg:pt-0
+
+    text-center
+  "
+>
 
       <AnimatePresence mode="wait">
 
@@ -54,14 +76,25 @@ export function HeroOverlay({ currentFrame }: HeroOverlayProps) {
               duration: 1.2,
               ease: [0.16, 1, 0.3, 1],
             }}
-            className="flex max-w-7xl flex-col items-center justify-center space-y-5 sm:space-y-6"
+            className="
+  flex
+  w-full
+  max-w-7xl
+  flex-col
+  items-center
+  justify-center
+
+  space-y-5
+
+  sm:space-y-6
+"
           >
 
             <span className="text-[10px] font-semibold uppercase tracking-[0.35em] text-[#E50914] sm:text-xs sm:tracking-[0.55em]">
               FODSE PRESENTS
             </span>
 
-            <h1 className="max-w-6xl text-4xl font-black uppercase tracking-tight leading-none text-white drop-shadow-[0_10px_40px_rgba(0,0,0,0.85)]
+            <h1 className="max-w-6xl text-5xl font-black uppercase tracking-tight leading-none text-white drop-shadow-[0_10px_40px_rgba(0,0,0,0.85)]
                            sm:text-7xl
                            md:text-8xl
                            lg:text-9xl">
@@ -109,14 +142,25 @@ export function HeroOverlay({ currentFrame }: HeroOverlayProps) {
               duration: 1.2,
               ease: [0.16, 1, 0.3, 1],
             }}
-            className="flex max-w-7xl flex-col items-center justify-center space-y-5 sm:space-y-6"
+            className="
+  flex
+  w-full
+  max-w-7xl
+  flex-col
+  items-center
+  justify-center
+
+  space-y-5
+
+  sm:space-y-6
+"
           >
 
             <span className="text-[10px] uppercase tracking-[0.30em] text-[#E50914] sm:text-xs sm:tracking-[0.45em]">
               BUILD • TRAIN • OPTIMIZE
             </span>
 
-            <h2 className="max-w-6xl text-3xl font-bold uppercase leading-none text-white
+            <h2 className="max-w-6xl text-5xl font-bold uppercase leading-none text-white
                            drop-shadow-[0_10px_35px_rgba(0,0,0,0.8)]
                            sm:text-6xl
                            md:text-7xl
@@ -166,7 +210,18 @@ export function HeroOverlay({ currentFrame }: HeroOverlayProps) {
               duration: 1.2,
               ease: [0.16, 1, 0.3, 1],
             }}
-            className="flex max-w-7xl flex-col items-center justify-center space-y-5 sm:space-y-6"
+            className="
+  flex
+  w-full
+  max-w-7xl
+  flex-col
+  items-center
+  justify-center
+
+  space-y-5
+
+  sm:space-y-6
+"
           >
 
             <span className="text-[10px] uppercase tracking-[0.30em] text-[#E50914] sm:text-xs sm:tracking-[0.45em]">

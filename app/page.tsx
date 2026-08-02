@@ -54,45 +54,51 @@ export default function Home() {
 
       <CanvasPlayer currentFrame={currentFrame} />
 
-      {/* Top Branding */}
+      {/* ========================================================= */}
+      {/* TOP LEFT BRANDING */}
+      {/* ========================================================= */}
 
-      <div className="pointer-events-none fixed left-8 top-8 z-30">
+      <div className="pointer-events-none fixed left-4 top-5 z-30 sm:left-8 sm:top-8">
 
-        <p className="text-xs uppercase tracking-[0.45em] text-[#E50914]">
+        <p className="text-[10px] uppercase tracking-[0.35em] text-[#E50914] sm:text-xs sm:tracking-[0.45em]">
           FODSE × SVCE
         </p>
 
-        <h1 className="mt-2 text-3xl font-black tracking-tight">
+        <h1 className="mt-1 text-2xl font-black tracking-tight sm:mt-2 sm:text-3xl">
           HEATCODE 2026
         </h1>
 
       </div>
 
-      {/* Event Date */}
+      {/* ========================================================= */}
+      {/* TOP RIGHT EVENT DATE */}
+      {/* ========================================================= */}
 
-      <div className="pointer-events-none fixed right-8 top-8 z-30 text-right">
+      <div className="pointer-events-none fixed right-4 top-5 z-30 text-right sm:right-8 sm:top-8">
 
-        <p className="text-xs uppercase tracking-[0.35em] text-white/60">
+        <p className="text-[10px] uppercase tracking-[0.28em] text-white/60 sm:text-xs sm:tracking-[0.35em]">
           EVENT DATE
         </p>
 
-        <p className="mt-2 text-lg font-semibold">
+        <p className="mt-1 text-sm font-semibold leading-tight sm:mt-2 sm:text-lg">
           8 Aug 2026 • 9:00 AM
         </p>
 
-        <p className="text-white/70">
+        <p className="text-xs text-white/70 sm:text-base">
           to
         </p>
 
-        <p className="text-lg font-semibold">
+        <p className="text-sm font-semibold leading-tight sm:text-lg">
           9 Aug 2026 • 6:00 PM
         </p>
 
       </div>
 
-      {/* Bottom Event Pills */}
+      {/* ========================================================= */}
+      {/* BOTTOM EVENT PILLS */}
+      {/* ========================================================= */}
 
-      <div className="pointer-events-none fixed bottom-8 left-1/2 z-30 flex -translate-x-1/2 flex-wrap items-center justify-center gap-3">
+      <div className="pointer-events-none fixed bottom-4 left-1/2 z-30 flex w-[92%] max-w-5xl -translate-x-1/2 flex-wrap items-center justify-center gap-2 sm:bottom-8 sm:w-auto sm:gap-3">
 
         {[
           "24 HOURS",
@@ -103,7 +109,7 @@ export default function Home() {
 
           <div
             key={item}
-            className="rounded-full border border-white/15 bg-white/10 px-5 py-2 text-xs font-semibold tracking-[0.25em] uppercase backdrop-blur-xl"
+            className="rounded-full border border-white/15 bg-white/10 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.18em] backdrop-blur-xl sm:px-5 sm:py-2 sm:text-xs sm:tracking-[0.25em]"
           >
             {item}
           </div>

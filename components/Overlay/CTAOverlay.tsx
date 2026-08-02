@@ -13,9 +13,12 @@ export function CTAOverlay({ currentFrame }: CTAOverlayProps) {
     currentFrame <= SCENES.SCENE_4.endFrame;
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-20 flex items-center justify-center px-6 text-center">
-      <AnimatePresence>
+    <div className="pointer-events-none fixed inset-0 z-20 flex items-center justify-center px-5 sm:px-6 text-center">
+
+      <AnimatePresence mode="wait">
+
         {isScene4 && (
+
           <motion.div
             key="heatcode-cta"
             initial={{
@@ -40,22 +43,48 @@ export function CTAOverlay({ currentFrame }: CTAOverlayProps) {
               duration: 1.3,
               ease: [0.16, 1, 0.3, 1],
             }}
-            className="flex flex-col items-center justify-center space-y-8"
+            className="flex w-full max-w-7xl flex-col items-center justify-center space-y-5 sm:space-y-8"
           >
-            <span className="text-xs uppercase tracking-[0.55em] text-[#E50914] font-semibold">
+
+            {/* Registration Tag */}
+
+            <span className="text-[10px] font-semibold uppercase tracking-[0.35em] text-[#E50914] sm:text-xs sm:tracking-[0.55em]">
+
               REGISTRATION OPEN
+
             </span>
 
-            <h2 className="max-w-6xl text-5xl font-black uppercase text-white sm:text-7xl md:text-8xl lg:text-9xl drop-shadow-[0_12px_40px_rgba(0,0,0,0.9)]">
+            {/* Main Heading */}
+
+            <h2
+              className="
+                max-w-6xl
+                text-4xl
+                font-black
+                uppercase
+                leading-none
+                tracking-tight
+                text-white
+                drop-shadow-[0_12px_40px_rgba(0,0,0,0.9)]
+
+                sm:text-7xl
+                md:text-8xl
+                lg:text-9xl
+              "
+            >
               CODE.
               <br />
               COMPETE.
               <br />
               CONQUER.
             </h2>
+
           </motion.div>
+
         )}
+
       </AnimatePresence>
+
     </div>
   );
 }

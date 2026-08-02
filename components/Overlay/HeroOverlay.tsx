@@ -21,10 +21,13 @@ export function HeroOverlay({ currentFrame }: HeroOverlayProps) {
     currentFrame <= SCENES.SCENE_3.endFrame;
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-10 flex items-center justify-center px-6 text-center">
+    <div className="pointer-events-none fixed inset-0 z-10 flex items-center justify-center px-5 sm:px-6 text-center">
+
       <AnimatePresence mode="wait">
 
-        {/* ---------------- SCENE 1 ---------------- */}
+        {/* ===================================================== */}
+        {/* SCENE 1 */}
+        {/* ===================================================== */}
 
         {isScene1 && (
           <motion.div
@@ -51,25 +54,35 @@ export function HeroOverlay({ currentFrame }: HeroOverlayProps) {
               duration: 1.2,
               ease: [0.16, 1, 0.3, 1],
             }}
-            className="flex flex-col items-center justify-center space-y-6"
+            className="flex max-w-7xl flex-col items-center justify-center space-y-5 sm:space-y-6"
           >
-            <span className="text-xs uppercase tracking-[0.55em] text-[#E50914] font-semibold">
+
+            <span className="text-[10px] font-semibold uppercase tracking-[0.35em] text-[#E50914] sm:text-xs sm:tracking-[0.55em]">
               FODSE PRESENTS
             </span>
 
-            <h1 className="max-w-6xl text-5xl font-black tracking-tight uppercase text-white sm:text-7xl md:text-8xl lg:text-9xl drop-shadow-[0_10px_40px_rgba(0,0,0,0.85)]">
+            <h1 className="max-w-6xl text-4xl font-black uppercase tracking-tight leading-none text-white drop-shadow-[0_10px_40px_rgba(0,0,0,0.85)]
+                           sm:text-7xl
+                           md:text-8xl
+                           lg:text-9xl">
               HEATCODE
             </h1>
 
-            <div className="h-[2px] w-28 bg-gradient-to-r from-transparent via-[#E50914] to-transparent" />
+            <div className="h-[2px] w-20 bg-gradient-to-r from-transparent via-[#E50914] to-transparent sm:w-28" />
 
-            <p className="max-w-3xl text-base uppercase tracking-[0.35em] text-white/70 sm:text-lg">
+            <p className="max-w-xs text-xs uppercase tracking-[0.22em] text-white/70
+                          sm:max-w-3xl
+                          sm:text-lg
+                          sm:tracking-[0.35em]">
               24-HOUR MACHINE LEARNING CHALLENGE
             </p>
+
           </motion.div>
         )}
 
-        {/* ---------------- SCENE 2 ---------------- */}
+        {/* ===================================================== */}
+        {/* SCENE 2 */}
+        {/* ===================================================== */}
 
         {isScene2 && (
           <motion.div
@@ -96,26 +109,37 @@ export function HeroOverlay({ currentFrame }: HeroOverlayProps) {
               duration: 1.2,
               ease: [0.16, 1, 0.3, 1],
             }}
-            className="flex flex-col items-center justify-center space-y-6"
+            className="flex max-w-7xl flex-col items-center justify-center space-y-5 sm:space-y-6"
           >
-            <span className="text-xs uppercase tracking-[0.45em] text-[#E50914]">
+
+            <span className="text-[10px] uppercase tracking-[0.30em] text-[#E50914] sm:text-xs sm:tracking-[0.45em]">
               BUILD • TRAIN • OPTIMIZE
             </span>
 
-            <h2 className="max-w-5xl text-4xl font-bold uppercase text-white sm:text-6xl md:text-7xl lg:text-8xl drop-shadow-[0_10px_35px_rgba(0,0,0,0.8)]">
+            <h2 className="max-w-6xl text-3xl font-bold uppercase leading-none text-white
+                           drop-shadow-[0_10px_35px_rgba(0,0,0,0.8)]
+                           sm:text-6xl
+                           md:text-7xl
+                           lg:text-8xl">
               COMPETE
               <br />
               ON KAGGLE
             </h2>
 
-            <p className="max-w-3xl text-lg text-white/75 leading-relaxed">
+            <p className="max-w-sm px-2 text-sm leading-relaxed text-white/75
+                          sm:max-w-3xl
+                          sm:px-0
+                          sm:text-lg">
               Team up with one partner, solve a real-world machine learning
               challenge, and climb the leaderboard before time runs out.
             </p>
+
           </motion.div>
         )}
 
-        {/* ---------------- SCENE 3 ---------------- */}
+        {/* ===================================================== */}
+        {/* SCENE 3 */}
+        {/* ===================================================== */}
 
         {isScene3 && (
           <motion.div
@@ -142,13 +166,18 @@ export function HeroOverlay({ currentFrame }: HeroOverlayProps) {
               duration: 1.2,
               ease: [0.16, 1, 0.3, 1],
             }}
-            className="flex flex-col items-center justify-center space-y-6"
+            className="flex max-w-7xl flex-col items-center justify-center space-y-5 sm:space-y-6"
           >
-            <span className="text-xs uppercase tracking-[0.45em] text-[#E50914]">
+
+            <span className="text-[10px] uppercase tracking-[0.30em] text-[#E50914] sm:text-xs sm:tracking-[0.45em]">
               THE FINAL COUNTDOWN
             </span>
 
-            <h2 className="max-w-5xl text-5xl font-black uppercase text-white sm:text-7xl md:text-8xl lg:text-9xl drop-shadow-[0_10px_35px_rgba(0,0,0,0.8)]">
+            <h2 className="max-w-6xl text-4xl font-black uppercase leading-none tracking-tight text-white
+                           drop-shadow-[0_10px_35px_rgba(0,0,0,0.8)]
+                           sm:text-7xl
+                           md:text-8xl
+                           lg:text-9xl">
               CODE.
               <br />
               COMPETE.
@@ -160,6 +189,7 @@ export function HeroOverlay({ currentFrame }: HeroOverlayProps) {
         )}
 
       </AnimatePresence>
+
     </div>
   );
 }

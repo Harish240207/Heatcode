@@ -72,19 +72,47 @@ export default function Home() {
           ease: "easeInOut",
         }}
         className="
-          pointer-events-none
-          fixed
-          left-4
-          z-30
-          sm:left-8
-        "
+  pointer-events-none
+  fixed
+  left-5
+  right-5
+  z-30
+
+  top-[78px]
+
+  flex
+  flex-col
+
+  sm:left-8
+  sm:right-auto
+  sm:block
+"
       >
 
-        <p className="text-[10px] uppercase tracking-[0.35em] text-[#E50914] sm:text-xs sm:tracking-[0.45em]">
+        <p className="
+text-[11px]
+uppercase
+tracking-[0.28em]
+text-[#E50914]
+
+sm:text-xs
+sm:tracking-[0.45em]
+">
           FODSE × SVCE
         </p>
 
-        <h1 className="mt-1 text-2xl font-black tracking-tight sm:mt-2 sm:text-3xl">
+        <h1
+className="
+mt-1
+text-[34px]
+font-black
+leading-none
+tracking-tight
+
+sm:mt-2
+sm:text-3xl
+"
+>
           HEATCODE 2026
         </h1>
 
@@ -103,20 +131,48 @@ export default function Home() {
           ease: "easeInOut",
         }}
         className="
-          pointer-events-none
-          fixed
-          right-4
-          z-30
-          text-right
-          sm:right-8
-        "
+pointer-events-none
+fixed
+
+left-5
+right-5
+
+top-[78px]
+
+z-30
+
+text-right
+
+sm:left-auto
+sm:right-8
+"
       >
 
-        <p className="text-[10px] uppercase tracking-[0.28em] text-white/60 sm:text-xs sm:tracking-[0.35em]">
+        <p
+className="
+text-[11px]
+uppercase
+tracking-[0.22em]
+text-white/60
+
+sm:text-xs
+sm:tracking-[0.35em]
+"
+>
           EVENT DATE
         </p>
 
-        <p className="mt-1 text-sm font-semibold leading-tight sm:mt-2 sm:text-lg">
+        <p
+className="
+mt-1
+text-[17px]
+font-bold
+leading-tight
+
+sm:mt-2
+sm:text-lg
+"
+>
           8 Aug 2026 • 9:00 AM
         </p>
 
@@ -124,7 +180,15 @@ export default function Home() {
           to
         </p>
 
-        <p className="text-sm font-semibold leading-tight sm:text-lg">
+        <p
+className="
+text-[17px]
+font-bold
+leading-tight
+
+sm:text-lg
+"
+>
           9 Aug 2026 • 6:00 PM
         </p>
 

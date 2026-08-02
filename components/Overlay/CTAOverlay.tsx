@@ -378,12 +378,14 @@ export function CTAOverlay({
                 ease: [0.16, 1, 0.3, 1],
               }}
               className="
-                flex
-                flex-col
-                items-center
-                justify-center
-                pt-10
-              "
+flex
+flex-col
+items-center
+justify-center
+
+pt-44
+sm:pt-10
+"
             >
 
               {/* Registration */}

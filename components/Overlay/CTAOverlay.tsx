@@ -1,7 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import { michroma } from "@/app/fonts";
 import { SCENES } from "@/constants/frames";
@@ -21,214 +22,315 @@ export function CTAOverlay({
   currentFrame,
 }: CTAOverlayProps) {
 
+  const [mobileOpen, setMobileOpen] = useState(false);
+
   const isScene4 =
     currentFrame >= SCENES.SCENE_4.startFrame &&
     currentFrame <= SCENES.SCENE_4.endFrame;
 
   return (
     <>
+
       {/* ====================================================== */}
-      {/* SPIDERMAN NAVBAR */}
+      {/* NAVBAR */}
       {/* ====================================================== */}
 
       <AnimatePresence>
 
         {isScene4 && (
 
-          <motion.header
-            initial={{
-              opacity: 0,
-              y: -30,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            exit={{
-              opacity: 0,
-              y: -30,
-            }}
-            transition={{
-              duration: 0.65,
-              ease: [0.16, 1, 0.3, 1],
-            }}
-            className="
-              fixed
-              top-0
-              left-0
-              right-0
-              z-[60]
-              pointer-events-auto
-              border-b
-              border-red-600/20
-              bg-gradient-to-r
-              from-[#07101A]/95
-              via-[#050608]/98
-              to-[#07101A]/95
-              backdrop-blur-2xl
-              shadow-[0_10px_45px_rgba(0,0,0,.65)]
-            "
-          >
-
-            <div
+          <>
+            <motion.header
+              initial={{ opacity: 0, y: -25 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -25 }}
+              transition={{
+                duration: 0.6,
+                ease: [0.16, 1, 0.3, 1],
+              }}
               className="
-                mx-auto
-                flex
-                h-16
-                max-w-[1650px]
-                items-center
-                px-8
-                xl:px-12
+                fixed
+                top-0
+                left-0
+                right-0
+                z-[60]
+                pointer-events-auto
+                border-b
+                border-red-500/20
+                bg-gradient-to-r
+                from-[#07131F]/95
+                via-[#050608]/95
+                to-[#07131F]/95
+                backdrop-blur-xl
+                shadow-[0_6px_30px_rgba(0,0,0,.55)]
               "
             >
 
-              {/* ================================================= */}
-              {/* DESKTOP */}
-              {/* ================================================= */}
+              <div
+                className="
+                  mx-auto
+                  flex
+                  h-[54px]
+                  w-full
+                  max-w-[1800px]
+                  items-center
+                  justify-between
+                  px-5
+                  lg:px-8
+                  xl:px-10
+                "
+              >
 
-              <div className="hidden w-full items-center lg:flex">
+                {/* ================================================= */}
+                {/* DESKTOP */}
+                {/* ================================================= */}
 
-                {/* ================= LEFT LOGO ================= */}
+                <div className="hidden w-full items-center lg:flex">
 
-                <div className="flex shrink-0 items-center">
+                  {/* LEFT LOGO */}
+
+                  <div className="flex shrink-0 items-center">
+
+                    <Image
+                      src="/fodse-logo.png"
+                      alt="FODSE Logo"
+                      width={58}
+                      height={58}
+                      priority
+                      className="
+                        h-11
+                        w-auto
+                        object-contain
+                        transition-all
+                        duration-300
+                        hover:scale-105
+                        drop-shadow-[0_0_14px_rgba(255,255,255,.18)]
+                      "
+                    />
+
+                  </div>
+
+                  {/* RIGHT */}
+
+                  <div className="ml-auto flex items-center gap-8">
+
+                    <nav
+                      className={`${michroma.className} flex items-center gap-8`}
+                    >
+
+                      {NAV_ITEMS.map((item) => (
+
+                        <button
+                          key={item}
+                          className={`
+                            ${michroma.className}
+                            group
+                            relative
+                            text-[14px]
+                            uppercase
+                            tracking-[0.04em]
+                            text-white
+                            transition-all
+                            duration-300
+                            hover:text-[#ff4545]
+                          `}
+                        >
+
+                          {item}
+
+                          <span
+                            className="
+                              absolute
+                              -bottom-[6px]
+                              left-0
+                              h-[2px]
+                              w-0
+                              rounded-full
+                              bg-[#E50914]
+                              transition-all
+                              duration-300
+                              group-hover:w-full
+                            "
+                          />
+
+                        </button>
+
+                      ))}
+
+                    </nav>
+
+                    <button
+                      className={`
+                        ${michroma.className}
+                        rounded-md
+                        border
+                        border-[#E50914]/40
+                        bg-white
+                        px-5
+                        py-[9px]
+                        text-[13px]
+                        uppercase
+                        tracking-[0.04em]
+                        text-black
+                        transition-all
+                        duration-300
+                        hover:bg-[#E50914]
+                        hover:text-white
+                        hover:shadow-[0_0_20px_rgba(229,9,20,.45)]
+                      `}
+                    >
+                      Register Now
+                    </button>
+
+                  </div>
+
+                </div>
+
+                {/* ================================================= */}
+                {/* MOBILE */}
+                {/* ================================================= */}
+
+                <div className="flex w-full items-center justify-between lg:hidden">
 
                   <Image
                     src="/fodse-logo.png"
                     alt="FODSE Logo"
-                    width={72}
-                    height={72}
+                    width={46}
+                    height={46}
                     priority
-                    className="
-                      h-14
-                      w-auto
-                      object-contain
-                      transition-all
-                      duration-300
-                      hover:scale-105
-                      drop-shadow-[0_0_18px_rgba(255,255,255,.18)]
-                    "
+                    className="h-9 w-auto object-contain"
                   />
 
-                </div>
-
-                {/* ================= RIGHT SIDE ================= */}
-
-                <div className="ml-auto flex items-center gap-12">
-
-                  <nav className={`${michroma.className} flex items-center gap-10`}>
-
-                    {NAV_ITEMS.map((item) => (
-
-                      <button
-                        key={item}
-                        className={`
-  ${michroma.className}
-  group
-  relative
-  text-[15px]
-  uppercase
-  tracking-[0.03em]
-  text-white
-  transition-all
-  duration-300
-  hover:text-[#ff4040]
-`}
-                      >
-
-                        {item}
-
-                        <span
-                          className="
-                            absolute
-                            -bottom-[7px]
-                            left-0
-                            h-[2px]
-                            w-0
-                            rounded-full
-                            bg-[#E50914]
-                            transition-all
-                            duration-300
-                            group-hover:w-full
-                          "
-                        />
-
-                      </button>
-
-                    ))}
-
-                  </nav>
-
                   <button
-                    className={`
-  ${michroma.className}
-  rounded-xl
-  border
-  border-[#E50914]/40
-  bg-white
-  px-7
-  py-2.5
-  text-[14px]
-  uppercase
-  tracking-[0.04em]
-  text-black
-  transition-all
-  duration-300
-  hover:bg-[#E50914]
-  hover:text-white
-  hover:shadow-[0_0_25px_rgba(229,9,20,.45)]
-`}
+                    onClick={() => setMobileOpen(!mobileOpen)}
+                    className="
+                      flex
+                      h-9
+                      w-9
+                      items-center
+                      justify-center
+                      rounded-md
+                      border
+                      border-white/10
+                      bg-white/5
+                      text-white
+                      transition-all
+                      hover:bg-white/10
+                    "
                   >
-                    Register Now
+
+                    {mobileOpen ? (
+                      <X size={20} />
+                    ) : (
+                      <Menu size={20} />
+                    )}
+
                   </button>
 
                 </div>
 
               </div>
 
-              {/* ================================================= */}
-              {/* MOBILE */}
-              {/* ================================================= */}
+            </motion.header>
 
-              <div className="flex w-full items-center justify-between lg:hidden">
+            {/* ================================================= */}
+            {/* MOBILE MENU */}
+            {/* ================================================= */}
 
-                <Image
-                  src="/fodse-logo.png"
-                  alt="FODSE Logo"
-                  width={52}
-                  height={52}
-                  className="h-11 w-auto object-contain"
-                />
+            <AnimatePresence>
 
-                <button
+              {mobileOpen && (
+
+                <motion.div
+                  initial={{
+                    opacity: 0,
+                    y: -15,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  exit={{
+                    opacity: 0,
+                    y: -15,
+                  }}
+                  transition={{
+                    duration: 0.25,
+                  }}
                   className="
-                    flex
-                    h-10
-                    w-10
-                    items-center
-                    justify-center
-                    rounded-lg
-                    border
-                    border-white/10
-                    bg-white/10
-                    text-white
+                    fixed
+                    top-[54px]
+                    left-0
+                    right-0
+                    z-[55]
+                    border-b
+                    border-red-500/20
+                    bg-[#07101A]/98
+                    backdrop-blur-xl
+                    lg:hidden
                   "
                 >
-                  <Menu size={20} />
-                </button>
 
-              </div>
+                  <div className="flex flex-col py-3">
 
-            </div>
+                    {NAV_ITEMS.map((item) => (
 
-          </motion.header>
+                      <button
+                        key={item}
+                        onClick={() => setMobileOpen(false)}
+                        className={`
+                          ${michroma.className}
+                          border-b
+                          border-white/5
+                          py-4
+                          text-center
+                          text-[13px]
+                          uppercase
+                          tracking-[0.05em]
+                          text-white
+                          transition-colors
+                          hover:bg-[#E50914]
+                        `}
+                      >
+                        {item}
+                      </button>
+
+                    ))}
+
+                    <div className="p-4">
+
+                      <button
+                        className={`
+                          ${michroma.className}
+                          w-full
+                          rounded-md
+                          bg-[#E50914]
+                          py-3
+                          text-[13px]
+                          uppercase
+                          text-white
+                          transition-all
+                          hover:bg-red-600
+                        `}
+                      >
+                        Register Now
+                      </button>
+
+                    </div>
+
+                  </div>
+
+                </motion.div>
+
+              )}
+
+            </AnimatePresence>
+
+          </>
 
         )}
 
       </AnimatePresence>
-
-      {/* ====================================================== */}
-      {/* HERO SECTION CONTINUES IN PART 2 */}
-      {/* ====================================================== */}
             {/* ====================================================== */}
       {/* HERO */}
       {/* ====================================================== */}
@@ -268,7 +370,7 @@ export function CTAOverlay({
               exit={{
                 opacity: 0,
                 y: 35,
-                scale: 0.96,
+                scale: 0.97,
                 filter: "blur(10px)",
               }}
               transition={{
@@ -280,7 +382,7 @@ export function CTAOverlay({
                 flex-col
                 items-center
                 justify-center
-                pt-12
+                pt-10
               "
             >
 
@@ -288,7 +390,7 @@ export function CTAOverlay({
 
               <span
                 className="
-                  mb-7
+                  mb-6
                   text-[11px]
                   font-semibold
                   uppercase
@@ -323,7 +425,7 @@ export function CTAOverlay({
                 CONQUER.
               </h2>
 
-              {/* Decorative Spider-Man Accent */}
+              {/* Spider-Man Accent */}
 
               <motion.div
                 initial={{

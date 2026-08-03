@@ -6,6 +6,12 @@ import { CTAOverlay } from "@/components/Overlay/CTAOverlay";
 import { HeroOverlay } from "@/components/Overlay/HeroOverlay";
 import { PlaybackController } from "@/components/Playback/PlaybackController";
 import { LoadingScreen } from "@/components/UI/LoadingScreen";
+import { AboutSection } from "@/components/sections/AboutSection";
+import { WhyParticipateSection } from "@/components/sections/WhyParticipateSection";
+import { ScheduleSection } from "@/components/sections/ScheduleSection";
+import { RewardsSection } from "@/components/sections/RewardsSection";
+import { ContactSection } from "@/components/sections/ContactSection";
+import { Footer } from "@/components/sections/Footer";
 import { useFrameLoader } from "@/hooks/useFrameLoader";
 import { usePlayback } from "@/hooks/usePlayback";
 import { SCENES } from "@/constants/frames";
@@ -26,241 +32,216 @@ export default function Home() {
     currentFrame <= SCENES.SCENE_4.endFrame;
 
   return (
-    <main className="relative h-screen w-screen overflow-hidden bg-[#030305] text-white select-none">
-
-      <LoadingScreen
-        percentage={percentage}
-        isStage2Ready={isStage2Ready}
-      />
-
-      <PlaybackController
-        isStage2Ready={isStage2Ready}
-        isPlaying={isPlaying}
-        isEnded={isEnded}
-        onAutoStart={play}
-      />
-
-      {isReplaying && (
-        <motion.div
-          initial={{ opacity: 0.9 }}
-          animate={{ opacity: 0 }}
-          transition={{ duration: 0.45 }}
-          className="pointer-events-none fixed inset-0 z-40 bg-black"
+    <main className="relative min-h-screen w-full bg-[#030305] text-white select-none overflow-x-hidden">
+      {/* ===================================================== */}
+      {/* HERO SECTION (SCENES 1 - 4 FRAME ENGINE & OVERLAYS) */}
+      {/* ===================================================== */}
+      <section className="relative h-screen w-full shrink-0 overflow-hidden">
+        <LoadingScreen
+          percentage={percentage}
+          isStage2Ready={isStage2Ready}
         />
-      )}
 
-      <CanvasPlayer currentFrame={currentFrame} />
+        <PlaybackController
+          isStage2Ready={isStage2Ready}
+          isPlaying={isPlaying}
+          isEnded={isEnded}
+          onAutoStart={play}
+        />
 
-      {/* ===================================================== */}
-      {/* MOBILE TOP INFO */}
-      {/* ===================================================== */}
+        {isReplaying && (
+          <motion.div
+            initial={{ opacity: 0.9 }}
+            animate={{ opacity: 0 }}
+            transition={{ duration: 0.45 }}
+            className="pointer-events-none absolute inset-0 z-40 bg-black"
+          />
+        )}
 
-      <motion.div
-        animate={{
-          opacity: isScene4 ? 0 : 1,
-          y: isScene4 ? -15 : 0,
-        }}
-        transition={{
-          duration: 0.35,
-        }}
-        className="
-          fixed
-          top-5
-          left-5
-          right-5
-          z-30
+        <CanvasPlayer currentFrame={currentFrame} />
 
-          flex
-          items-start
-          justify-between
-
-          sm:hidden
-        "
-      >
-
-        <div>
-
-          <p className="text-[10px] uppercase tracking-[0.3em] text-[#E50914]">
-            FODSE × SVCE
-          </p>
-
-          <h1 className="mt-2 text-[30px] font-black leading-none">
-            HEATCODE
-            <br />
-            2026
-          </h1>
-
-        </div>
-
-        <div className="text-right">
-
-          <p className="text-[10px] uppercase tracking-[0.25em] text-white/60">
-            EVENT DATE
-          </p>
-
-          <p className="mt-2 text-[13px] font-semibold">
-            8 Aug 2026
-          </p>
-
-          <p className="text-[11px] text-white/60">
-            9:00 AM
-          </p>
-
-          <p className="mt-2 text-[13px] font-semibold">
-            9 Aug 2026
-          </p>
-
-          <p className="text-[11px] text-white/60">
-            6:00 PM
-          </p>
-
-        </div>
-
-      </motion.div>
-
-      {/* ===================================================== */}
-      {/* DESKTOP LEFT */}
-      {/* ===================================================== */}
-
-      <motion.div
-        animate={{
-          top: isScene4 ? "6.8rem" : "1.5rem",
-        }}
-        transition={{
-          duration: 0.45,
-        }}
-        className="
-          pointer-events-none
-          fixed
-          left-8
-          z-30
-
-          hidden
-          sm:block
-        "
-      >
-
-        <p className="text-xs uppercase tracking-[0.45em] text-[#E50914]">
-          FODSE × SVCE
-        </p>
-
-        <h1 className="mt-2 text-3xl font-black tracking-tight">
-          HEATCODE 2026
-        </h1>
-
-      </motion.div>
-
-      {/* ===================================================== */}
-      {/* DESKTOP RIGHT */}
-      {/* ===================================================== */}
-
-      <motion.div
-        animate={{
-          top: isScene4 ? "6.8rem" : "1.5rem",
-        }}
-        transition={{
-          duration: 0.45,
-        }}
-        className="
-          pointer-events-none
-          fixed
-          right-8
-          z-30
-          text-right
-
-          hidden
-          sm:block
-        "
-      >
-
-        <p className="text-xs uppercase tracking-[0.35em] text-white/60">
-          EVENT DATE
-        </p>
-
-        <p className="mt-2 text-lg font-semibold">
-          8 Aug 2026 • 9:00 AM
-        </p>
-
-        <p className="text-sm text-white/60">
-          to
-        </p>
-
-        <p className="text-lg font-semibold">
-          9 Aug 2026 • 6:00 PM
-        </p>
-
-      </motion.div>
-
-      {/* ===================================================== */}
-      {/* BOTTOM PILLS */}
-      {/* ===================================================== */}
-
-      {!isScene4 && (
-
-        <div
+        {/* MOBILE TOP INFO */}
+        <motion.div
+          animate={{
+            opacity: isScene4 ? 0 : 1,
+            y: isScene4 ? -15 : 0,
+          }}
+          transition={{
+            duration: 0.35,
+          }}
           className="
-            pointer-events-none
-            fixed
-            bottom-4
-            left-1/2
+            absolute
+            top-5
+            left-5
+            right-5
             z-30
 
             flex
-            -translate-x-1/2
-            flex-wrap
-            justify-center
-            gap-2
+            items-start
+            justify-between
 
-            w-[92%]
-
-            sm:w-auto
-            sm:bottom-8
-            sm:gap-3
+            sm:hidden
           "
         >
+          <div>
+            <p className="text-[10px] uppercase tracking-[0.3em] text-[#E50914]">
+              FODSE × SVCE
+            </p>
+            <h1 className="mt-2 text-[30px] font-black leading-none">
+              HEATCODE
+              <br />
+              2026
+            </h1>
+          </div>
 
-          {[
-            "24 HOURS",
-            "TEAMS OF 2",
-            "KAGGLE",
-            "MACHINE LEARNING",
-          ].map((item) => (
+          <div className="text-right">
+            <p className="text-[10px] uppercase tracking-[0.25em] text-white/60">
+              EVENT DATE
+            </p>
+            <p className="mt-2 text-[13px] font-semibold">
+              8 Aug 2026
+            </p>
+            <p className="text-[11px] text-white/60">
+              9:00 AM
+            </p>
+            <p className="mt-2 text-[13px] font-semibold">
+              9 Aug 2026
+            </p>
+            <p className="text-[11px] text-white/60">
+              6:00 PM
+            </p>
+          </div>
+        </motion.div>
 
-            <div
-              key={item}
-              className="
-                rounded-full
-                border
-                border-white/15
-                bg-white/10
+        {/* DESKTOP LEFT */}
+        <motion.div
+          animate={{
+            top: isScene4 ? "6.8rem" : "1.5rem",
+          }}
+          transition={{
+            duration: 0.45,
+          }}
+          className="
+            pointer-events-none
+            absolute
+            left-8
+            z-30
 
-                px-4
-                py-2
+            hidden
+            sm:block
+          "
+        >
+          <p className="text-xs uppercase tracking-[0.45em] text-[#E50914]">
+            FODSE × SVCE
+          </p>
+          <h1 className="mt-2 text-3xl font-black tracking-tight">
+            HEATCODE 2026
+          </h1>
+        </motion.div>
 
-                text-[10px]
-                font-semibold
-                uppercase
-                tracking-[0.18em]
+        {/* DESKTOP RIGHT */}
+        <motion.div
+          animate={{
+            top: isScene4 ? "6.8rem" : "1.5rem",
+          }}
+          transition={{
+            duration: 0.45,
+          }}
+          className="
+            pointer-events-none
+            absolute
+            right-8
+            z-30
+            text-right
 
-                backdrop-blur-xl
+            hidden
+            sm:block
+          "
+        >
+          <p className="text-xs uppercase tracking-[0.35em] text-white/60">
+            EVENT DATE
+          </p>
+          <p className="mt-2 text-lg font-semibold">
+            8 Aug 2026 • 9:00 AM
+          </p>
+          <p className="text-sm text-white/60">
+            to
+          </p>
+          <p className="mt-2 text-lg font-semibold">
+            9 Aug 2026 • 6:00 PM
+          </p>
+        </motion.div>
 
-                sm:px-5
-                sm:text-xs
-              "
-            >
-              {item}
-            </div>
+        {/* BOTTOM PILLS */}
+        {!isScene4 && (
+          <div
+            className="
+              pointer-events-none
+              absolute
+              bottom-4
+              left-1/2
+              z-30
 
-          ))}
+              flex
+              -translate-x-1/2
+              flex-wrap
+              justify-center
+              gap-2
 
-        </div>
+              w-[92%]
 
-      )}
+              sm:w-auto
+              sm:bottom-8
+              sm:gap-3
+            "
+          >
+            {[
+              "24 HOURS",
+              "TEAMS OF 2",
+              "KAGGLE",
+              "MACHINE LEARNING",
+            ].map((item) => (
+              <div
+                key={item}
+                className="
+                  rounded-full
+                  border
+                  border-white/15
+                  bg-white/10
 
-      <HeroOverlay currentFrame={currentFrame} />
+                  px-4
+                  py-2
 
-      <CTAOverlay currentFrame={currentFrame} />
+                  text-[10px]
+                  font-semibold
+                  uppercase
+                  tracking-[0.18em]
 
+                  backdrop-blur-xl
+
+                  sm:px-5
+                  sm:text-xs
+                "
+              >
+                {item}
+              </div>
+            ))}
+          </div>
+        )}
+
+        <HeroOverlay currentFrame={currentFrame} />
+        <CTAOverlay currentFrame={currentFrame} />
+      </section>
+
+      {/* ===================================================== */}
+      {/* EXTENDED LANDING PAGE SECTIONS (AFTER HERO / SCENE 4) */}
+      {/* ===================================================== */}
+      <AboutSection />
+      <WhyParticipateSection />
+      <ScheduleSection />
+      <RewardsSection />
+      <ContactSection />
+      <Footer />
     </main>
   );
 }

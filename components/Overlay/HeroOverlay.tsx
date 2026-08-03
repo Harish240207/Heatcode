@@ -22,31 +22,29 @@ export function HeroOverlay({ currentFrame }: HeroOverlayProps) {
 
   return (
     <div
-  className="
-    pointer-events-none
-    fixed
-    inset-0
-    z-10
+      className="
+        pointer-events-none
+        absolute
+        inset-0
+        z-10
 
-    flex
+        flex
 
-    items-start
-    justify-center
+        items-start
+        justify-center
 
-    px-5
-    sm:px-6
+        px-5
+        sm:px-6
 
-    pt-44
-    sm:pt-36
-    lg:items-center
-    lg:pt-0
+        pt-44
+        sm:pt-36
+        lg:items-center
+        lg:pt-0
 
-    text-center
-  "
->
-
+        text-center
+      "
+    >
       <AnimatePresence mode="wait">
-
         {/* ===================================================== */}
         {/* SCENE 1 */}
         {/* ===================================================== */}
@@ -77,19 +75,18 @@ export function HeroOverlay({ currentFrame }: HeroOverlayProps) {
               ease: [0.16, 1, 0.3, 1],
             }}
             className="
-  flex
-  w-full
-  max-w-7xl
-  flex-col
-  items-center
-  justify-center
+              flex
+              w-full
+              max-w-7xl
+              flex-col
+              items-center
+              justify-center
 
-  space-y-5
+              space-y-5
 
-  sm:space-y-6
-"
+              sm:space-y-6
+            "
           >
-
             <span className="text-[10px] font-semibold uppercase tracking-[0.35em] text-[#E50914] sm:text-xs sm:tracking-[0.55em]">
               FODSE PRESENTS
             </span>
@@ -109,7 +106,6 @@ export function HeroOverlay({ currentFrame }: HeroOverlayProps) {
                           sm:tracking-[0.35em]">
               24-HOUR MACHINE LEARNING CHALLENGE
             </p>
-
           </motion.div>
         )}
 
@@ -143,19 +139,18 @@ export function HeroOverlay({ currentFrame }: HeroOverlayProps) {
               ease: [0.16, 1, 0.3, 1],
             }}
             className="
-  flex
-  w-full
-  max-w-7xl
-  flex-col
-  items-center
-  justify-center
+              flex
+              w-full
+              max-w-7xl
+              flex-col
+              items-center
+              justify-center
 
-  space-y-5
+              space-y-5
 
-  sm:space-y-6
-"
+              sm:space-y-6
+            "
           >
-
             <span className="text-[10px] uppercase tracking-[0.30em] text-[#E50914] sm:text-xs sm:tracking-[0.45em]">
               BUILD • TRAIN • OPTIMIZE
             </span>
@@ -177,7 +172,6 @@ export function HeroOverlay({ currentFrame }: HeroOverlayProps) {
               Team up with one partner, solve a real-world machine learning
               challenge, and climb the leaderboard before time runs out.
             </p>
-
           </motion.div>
         )}
 
@@ -211,19 +205,18 @@ export function HeroOverlay({ currentFrame }: HeroOverlayProps) {
               ease: [0.16, 1, 0.3, 1],
             }}
             className="
-  flex
-  w-full
-  max-w-7xl
-  flex-col
-  items-center
-  justify-center
+              flex
+              w-full
+              max-w-7xl
+              flex-col
+              items-center
+              justify-center
 
-  space-y-5
+              space-y-5
 
-  sm:space-y-6
-"
+              sm:space-y-6
+            "
           >
-
             <span className="text-[10px] uppercase tracking-[0.30em] text-[#E50914] sm:text-xs sm:tracking-[0.45em]">
               THE FINAL COUNTDOWN
             </span>
@@ -239,12 +232,9 @@ export function HeroOverlay({ currentFrame }: HeroOverlayProps) {
               <br />
               CONQUER.
             </h2>
-
           </motion.div>
         )}
-
       </AnimatePresence>
-
     </div>
   );
 }

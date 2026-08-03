@@ -16,7 +16,10 @@ const NAV_ITEMS = [
   "Why Participate",
   "Schedule",
   "Rewards",
+  "Contact",
 ];
+const GOOGLE_FORM_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLSdqkKNa3HTwwa845wYmxNJeTu0jygtmJeIw95qNPtLD8u30pA/viewform?usp=publish-editor";
 
 export function CTAOverlay({
   currentFrame,
@@ -27,6 +30,22 @@ export function CTAOverlay({
   const isScene4 =
     currentFrame >= SCENES.SCENE_4.startFrame &&
     currentFrame <= SCENES.SCENE_4.endFrame;
+
+  const handleScrollTo = (item: string) => {
+    const targetMap: Record<string, string> = {
+      About: "about",
+      "Why Participate": "why-participate",
+      Schedule: "schedule",
+      Rewards: "rewards",
+      Contact: "contact",
+      "Register Now": "register",
+    };
+    const targetId = targetMap[item] || item.toLowerCase().replace(/\s+/g, "-");
+    const el = document.getElementById(targetId);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <>
@@ -140,6 +159,7 @@ export function CTAOverlay({
 
                         <button
                           key={item}
+                          onClick={() => handleScrollTo(item)}
                           className={`
                             ${michroma.className}
                             group
@@ -183,6 +203,13 @@ export function CTAOverlay({
                     {/* Register Button */}
 
                     <button
+  onClick={() =>
+    window.open(
+      GOOGLE_FORM_URL,
+      "_blank",
+      "noopener,noreferrer"
+    )
+  }
                       className={`
                         ${michroma.className}
                         group
@@ -377,7 +404,10 @@ export function CTAOverlay({
                           transition={{
                             delay: index * 0.05,
                           }}
-                          onClick={() => setMobileOpen(false)}
+                          onClick={() => {
+                            setMobileOpen(false);
+                            handleScrollTo(item);
+                          }}
                           className={`
                             ${michroma.className}
 
@@ -409,6 +439,15 @@ export function CTAOverlay({
                     </nav>
 
                     <button
+                      onClick={() => {
+  setMobileOpen(false);
+
+  window.open(
+    GOOGLE_FORM_URL,
+    "_blank",
+    "noopener,noreferrer"
+  );
+}}
                       className={`
                         ${michroma.className}
 
@@ -458,7 +497,7 @@ export function CTAOverlay({
       <div
         className="
           pointer-events-none
-          fixed
+          absolute
           inset-0
           z-20
 

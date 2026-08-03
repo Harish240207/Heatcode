@@ -8,7 +8,7 @@ interface CanvasPlayerProps {
 
 export function CanvasPlayer({ currentFrame }: CanvasPlayerProps) {
   return (
-    <div className="relative h-screen w-screen overflow-hidden bg-[#030305]">
+    <div className="absolute inset-0 h-full w-full overflow-hidden bg-[#030305]">
       {/* HTML5 Canvas Frame Engine */}
       <CanvasRenderer currentFrame={currentFrame} />
 
